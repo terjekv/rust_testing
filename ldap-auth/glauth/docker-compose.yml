@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  glauth:
+    image: glauth/glauth
+    volumes:
+      - ./config.cfg:/app/config/config.cfg
+      - ./glauth.key:/app/config/glauth.key
+      - ./glauth.crt:/app/config/glauth.crt
+    ports:
+      - "3893:3893"
+      - "3894:3894"
+      - "5555:5555"
+    restart: unless-stopped
